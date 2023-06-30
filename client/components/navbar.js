@@ -9,13 +9,13 @@ function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div>
-			<nav className=" font-inter fixed w-full z-10 bg-[#e8f1f2]">
+			<nav className=" font-inter  w-full z-10 bg-[#e8f1f2]">
 				<div className="w-full">
 					<div className="flex items-center h-20 w-full">
 						<div className="flex items-center  mx-20  justify-between w-full">
 							<div className="flex justify-center items-center flex-shrink-0 ">
-								<image className="ml-10 object-center mt-1 p-2 xl:h-[60px] xl:w-[60px] h-[60px] w-[60px]" 
-                src="/new_logo.png"/>
+								{/* <img className="ml-10 object-center mt-1 p-2 xl:h-[60px] xl:w-[60px] h-[60px] w-[60px]" 
+                src="/new_logo.png"/> */}
                 <h1 className=" xl:visible text-center font-bold xl:text-3xl cursor-pointer text-lg">
                 Live<span className="text-blue-500">Auction</span> 
 								</h1>
