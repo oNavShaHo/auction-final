@@ -1,41 +1,70 @@
 import React, { useState } from 'react';
-import Flowbite from './Flowbite';
+import Flowbite from './Dropdown';
+import Dropdown from './Dropdown';
 
 export default function Hero() {
-  
-  const [buttonHovered, setButtonHovered] = useState(false);
-
-  const handleMouseEnter = (event) => {
-    event.target.classList.add('underline');
-    setButtonHovered(true);
-  };
-
-  const handleMouseLeave = (event) => {
-    event.target.classList.remove('underline');
-    setButtonHovered(false);
-  };
+ 
 
 
   return (
-    <div className='relative z-0'>
-      <ul className='flex  mx-20 px-3'>
-        <li className="droplist my-3 pr-3 cursor-pointer"  onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>     Electronics
+    <nav>
+      <ul className='flex items-center pl-20'>
+        <li className='relative group px-3 py-3'>
+            <button className='opacity-70 hover:opacity-80  group-hover:underline group-hover:decoration-gray-600'>Electronics</button>
+            <div className="invisible absolute opacity-0 my-5  bg-neutral-50 group-hover:opacity-100 group-hover:visible duration-500 min-w-[560px]">
+                <div className='grid grid-cols-2'>
+                  <div>
+                    <p className=' pl-2 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className=' pl-2 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className=' pl-2 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className=' pl-2 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className=' pl-2 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                  </div>
+                  <div>
+                    <p className='py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className='py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className='py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className='py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className='py-1 tracking-wide text-gray-600'> mobilephones</p>
+                  </div>
+                </div>
+            </div>
         </li>
-        <li className="droplist my-3 px-3 cursor-pointer"  onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>     Fashion
+        <li className='relative group px-3 py-3'>
+            <button className='opacity-70 hover:opacity-80  hover:underline hover:decoration-gray-600'>Fashion</button>
+            <div className="invisible absolute opacity-0 my-5  bg-neutral-50 group-hover:opacity-100 group-hover:visible duration-500 min-w-[560px]">
+                <div className='grid grid-cols-2 gap-2'>
+                  <div>
+                    <p className=' px-1 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                  </div>
+                </div>
+            </div>
         </li>
-        <li className="droplist my-3 px-3 cursor-pointer"  onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>     Luxury
+        <li className='relative group px-3 py-3'>
+            <button className='opacity-70 hover:opacity-80  hover:underline hover:decoration-gray-600'>Luxury</button>
+            <div className="invisible absolute opacity-0 my-5  bg-neutral-50 group-hover:opacity-100 group-hover:visible duration-500 min-w-[560px]">
+                <div className='grid grid-cols-2 gap-2'>
+                  <div>
+                    <p className=' px-1 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className=' px-1 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className=' px-1 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className=' px-1 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                    <p className=' px-1 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                  </div>
+                </div>
+            </div>
         </li>
-        <li className="droplist my-3 px-3 cursor-pointer"  onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>     Collectibles
-        </li>
-        <li className="droplist my-3 px-3 cursor-pointer"  onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>     Art
+        <li className='relative group px-3 py-3' >
+            <button className='opacity-70 hover:opacity-80  hover:underline hover:decoration-gray-600'>Art</button>
+            <div className="invisible absolute opacity-0 my-5  bg-neutral-50 group-hover:opacity-100 group-hover:visible duration-500 min-w-[560px]">
+                <div className='grid grid-cols-2 gap-2'>
+                  <div>
+                    <p className=' px-1 py-1 tracking-wide text-gray-600'> mobilephones</p>
+                  </div>
+                </div>
+            </div>
         </li>
       </ul>
-      {buttonHovered && <Flowbite/>}
-    </div>
+    </nav>
   )
 }

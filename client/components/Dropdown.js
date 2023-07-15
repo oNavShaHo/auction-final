@@ -1,8 +1,26 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
-export default function Flowbite() {
+export default function Dropdown(props) {
+   
+    useEffect(() => {
+        
+        document.getElementById("megadrop").addEventListener("mouseenter",()=>{
+            props.sethover(true);
+        })
+        document.getElementById("megadrop").addEventListener("mouseenter",()=>{
+            props.sethover(false);
+        })
+    })
+
+
+
+    // if( typeof window !== null){
+        
+    // }
+
+
   return (
-    <div className='absolute'>
+    <div id = "megadrop" className='absolute left-24'>
         <div id="mega-menu-full-cta-dropdown" className="mt-1 bg-white border-gray-200 shadow-sm border-y ">
         <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-3 md:px-6">
             <ul className="space-y-4 sm:mb-4 md:mb-0" aria-labelledby="mega-menu-full-cta-button">

@@ -1,5 +1,5 @@
 import React from 'react'
-import Flowbite from '@/components/Flowbite'
+import Flowbite from '@/components/Dropdown'
 export default function flowbite() {
   return (
     <div>
