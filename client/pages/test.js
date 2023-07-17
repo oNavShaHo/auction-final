@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar2 from '@/components/Navbar';
+import Navbar from '@/components/Navbar';
 import Card from '@/components/Card';
 import Hero from '@/components/Hero';
 export default function test() {
   return (
     <div>
-      <Navbar2></Navbar2>
+      <Navbar></Navbar>
       <Hero></Hero>
       <div className="mx-20">
       <Card/>
