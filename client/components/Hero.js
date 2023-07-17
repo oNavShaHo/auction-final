@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Flowbite from './Dropdown';
-import Dropdown from './Dropdown';
+
+
 
 export default function Hero() {
  
