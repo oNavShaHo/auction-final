@@ -1,0 +1,21 @@
+POST http://localhost:8080/user/post
+Content-Type: application/json
+
+{
+        "user" : "geudwsfgcyuheds" ,
+        "date" : "20-10-2023" ,
+        "email" : "123@gmail.com"
+}
+
+###
+Get http://localhost:8080/user/get
+Content-Type: application/json
+
+###
+Get http://localhost:8080/user/get/64b69bd53af0c2ac1e9165cf
+Content-Type: application/json
+
+###
+DELETE http://localhost:8080/user/delete/64b69bd53af0c2ac1e9165cf
+Content-Type: application/json
+
