@@ -5,27 +5,14 @@ import Hero from '@/components/Hero';
 export default function test() {
   return (
     <div>
-      <Navbar></Navbar>
-      <Hero></Hero>
-      <div className="mx-20">
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
+      <Navbar/>
+      <div className='grid grid-cols-2 mx-10'>
+        <div>
+
+        </div>
+        <div>
+          <h1 className='tex'>ROLEX SUBMARINER TWO TONE BLUE DIAL</h1>
+        </div>
       </div>
     </div>
   )
