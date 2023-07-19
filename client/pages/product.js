@@ -1,10 +1,10 @@
 import React from 'react'
 import Navbar from '@/components/Navbar';
-import Card from '@/components/Card';
-import Hero from '@/components/Hero';
-export default function test() {
+
+export default function product() {
   return (
-    <div>
+    
+      <div>
       <Navbar/>
       <div className=' mt-10 grid grid-cols-2 mx-44 gap-24' >
         <div>
@@ -46,5 +46,7 @@ export default function test() {
         </div>
       </div>
     </div>
+
+
   )
 }
