@@ -2,9 +2,51 @@ import React from 'react'
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link'
+
+
+let description = `Tudor Rolex Prince Oyster Date Submariner SS Auto Mens 75090 Finished
+Type: wristwatch 
+
+Tudor Rolex Prince Oyster Date Submariner stainless steel self-winding men's watch 75090 (exterior finished) pre-owned
+basic information
+Brand Name: Tudor
+Line Name: Submariner
+Model: 75090
+Product number (MPN): 75090
+design
+Style: Sports
+Gender: Men
+Material (case): Stainless steel (SS)
+Material (bracelet/belt): Stainless steel (SS)
+Color (Dial): Blue
+movement
+Movement: Automatic
+function
+Function: Date
+size
+Case Width: 36mm / 1.42''
+accessories
+Accessories: Inner box  Outer box
+situation
+Condition: Very Good
+Rank: Rank A Used Slightly used  some scratches and stains can be seen  but overall in good condition
+Windshield Scratches: Slight
+Dial Scratches/Deterioration: None
+Needle Scratches/Deterioration: None
+Case Scratches: Slight
+Bezel Scratches: Slight
+Crown Scratches: None
+Scratches on back cover: Slight
+Bracelet Scratches: Slight
+Maintenance: Polished exterior finish
+Arm circumference: 17.5cm / 6.88''
+Total Weight: 370g / 13.05oz. 
+`
+let text = description.split('\n');
+
 export default function test() {
   return (
-    <div>
+    <div className='tracking-wide'>
       <Navbar/>
       <div className=' mt-10 grid grid-cols-2 mx-44 gap-24' >
         <div>
@@ -16,6 +58,13 @@ export default function test() {
           className='border'>
           
           </Image>
+          <p className='text-black font-semibold mb-2'>Item Details</p>
+          <p className='text-gray-600 my-2'>Description</p>
+          {text.map(str=>{
+            return <p className='leading-7'>{str}</p>
+          })
+          }
+
         </div>
         <div>
           <h1 className='text-3xl'>ROLEX BRAND NEW SUBMARINER TWO TONE BLUE DIAL</h1>
@@ -57,7 +106,7 @@ export default function test() {
               Get approved to bid.
             </p>
               
-            <div className='absolute left-36  ml-2 top-0'>
+            <div className='absolute left-36  ml-3 top-0'>
               <Link className='text-cyan-700 hover:underline hover:decoration-cyan-600 hover:text-cyan-600' href="/test">Register for Auction</Link>
             </div>
           </div>
