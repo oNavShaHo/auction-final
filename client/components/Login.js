@@ -1,8 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 
 
 export default function Login(props) {
+
+	
+		const [email, setEmail] = useState('');
+		const [password, setPassword] = useState('');
+		const [isLoading, setIsLoading] = useState(false);
+		
+		
+		const onSubmit = async (event) => {
+		  // prevent redirect
+		  event.preventDefault();
+	  
+		  setIsLoading(true);
+
+		  let options = {
+			method : "POST",
+			headers : {
+				"Content-Type": "application/json"
+			},
+
+			body: {
+				userName: email,
+				email: password
+			}
+			
+		  }
+	  
+		 await fetch( "http://localhost:8080/user/post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userName: email,
+          email:password,
+          
+    	})
+	}).then(console.log("done"))
+	  
+		  // reset form and loading state
+		  setEmail('');
+		  setIsLoading(false);
+		};
 	
 	function show_hide() {
 
@@ -35,12 +77,12 @@ export default function Login(props) {
 				</button>
 				<h1 className=' text-center text-black text-2xl'>Welcome to LiveAuctioneers!</h1>
 			</div>
-			<form action="/">
+			<form  onSubmit={ (e) =>onSubmit(e)}>
 
 			
 				<div className="mx-20 mb-10 ">
 					<label  className= "w-max text-gray-600 text-sm" htmlFor="email">EMAIL ADDRESS</label>
-					<input className='leading-10 border w-full mb-8' type="email" name="email" id="" />
+					<input onChange={(event) => {setEmail(event.target.value)}} className='leading-10 border w-full mb-8' type="email" name="email" id="" />
 
 					<div className='relative'>
 					<label htmlFor="password" className="w-max text-gray-600 text-sm">PASSWORD</label>
@@ -52,9 +94,9 @@ export default function Login(props) {
 						</button>
 					
 					</div>
-					<input className='leading-10 border w-full mb-8' type="password" name="password" id='password'/>
+					<input className='leading-10 border w-full mb-8' onChange={(event) => setPassword(event.target.value)} type="password" name="password" id='password'/>
 
-					<button type='submit' className='text-center bg-red-800 w-full text-white leading-10'>SIGNUP</button>
+					<button type='submit'  className='text-center bg-red-800 w-full hover:bg-red-700 text-white leading-10'>SIGNUP</button>
 				</div>
 			</form>
 		</div>
