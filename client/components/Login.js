@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
-
+import{auth} from '../firebase/firebase'
+import {createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Login(props) {
 
@@ -16,30 +17,21 @@ export default function Login(props) {
 	  
 		  setIsLoading(true);
 
-		  let options = {
-			method : "POST",
-			headers : {
-				"Content-Type": "application/json"
-			},
-
-			body: {
-				userName: email,
-				email: password
-			}
-			
-		  }
-	  
-		 await fetch( "http://localhost:8080/user/post", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userName: email,
-          email:password,
-          
-    	})
-	}).then(console.log("done"))
+		   // Create the firebase Authetication
+		  createUserWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+			// Signed in 
+			const user = userCredential.user;
+			console.log("done");
+			// ...
+		  })
+		  .catch((error) => {
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			// ..
+			console.log(errorCode);
+			console.log(errorMessage);
+		  });
 	  
 		  // reset form and loading state
 		  setEmail('');
