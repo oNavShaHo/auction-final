@@ -103,10 +103,10 @@ export default function Login(props) {
 					</div>
 					<input className='leading-10 border w-full mb-8' onChange={(event) => setPassword(event.target.value)} type="password" name="password" id='password'/>
 
-					<button type='submit'  className='text-center bg-red-800 w-full hover:bg-red-700 text-white leading-10'>SIGNUP</button>
+					<button type='submit'  className='text-center bg-red-800 w-full hover:bg-red-700 text-white leading-10'>{isSignupMode ? 'SIGNUP' : "LOGIN"}</button>
 
                     <p className="text-center">{isSignupMode ? 'Already have an account?' : "Don't have an account?"}
-                        <button className = "mt-6   text-cyan-800 underline decoration-cyan-800 hover:text-cyan-700 hover:decoration-cyan-700 "onClick={toggleFormMode}>{isSignupMode ? 'SIGNUP' : 'LOGIN'}</button>
+                        <button className = "mt-6   text-cyan-800 underline decoration-cyan-800 hover:text-cyan-700 hover:decoration-cyan-700 "onClick={toggleFormMode}>{isSignupMode ? 'LOGIN' : 'SIGNUP'}</button>
                     </p>
 				</div>
 			</form>
