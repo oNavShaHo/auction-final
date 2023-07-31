@@ -50,33 +50,33 @@ export default function addProduct() {
               <option value="Automobile">Automobile</option>
             </select>
           </div>
-          <ul class="grid w-full gap-6 md:grid-cols-3">
+          <ul className="grid w-full gap-6 md:grid-cols-3">
               <li>
-                  <input type="radio" id="hosting-small" name="hosting" value="hosting-small" class="hidden peer" required/>
-                  <label for="hosting-small" class="inline-flex items-center justify-between w-full p-3  text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-cyan-500 peer-checked:text-cyan-500 hover:text-gray-600 hover:bg-gray-100">                           
-                      <div class="block">
+                  <input type="radio" id="hosting-small" name="hosting" value="hosting-small" className="hidden peer" required/>
+                  <label htmlFor="hosting-small" className="inline-flex items-center justify-between w-full p-3  text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:border-cyan-500 peer-checked:text-cyan-500 hover:text-gray-600 hover:bg-gray-100">                           
+                      <div className="block">
                          
-                          <div class="w-full"> Brand new</div>
+                          <div className="w-full"> Brand new</div>
                       </div>
                       
                   </label>
               </li>
               <li>
-                  <input type="radio" id="hosting-big" name="hosting" value="hosting-big" class="hidden peer"/>
-                  <label for="hosting-big" class="inline-flex items-center justify-between w-full p-3  text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer  peer-checked:border-cyan-500 peer-checked:text-cyan-500 hover:text-gray-600 hover:bg-gray-100">
-                      <div class="block">
+                  <input type="radio" id="hosting-big" name="hosting" value="hosting-big" className="hidden peer"/>
+                  <label htmlFor="hosting-big" className="inline-flex items-center justify-between w-full p-3  text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer  peer-checked:border-cyan-500 peer-checked:text-cyan-500 hover:text-gray-600 hover:bg-gray-100">
+                      <div className="block">
                          
-                          <div class="w-full"> Second hand</div>
+                          <div className="w-full"> Second hand</div>
                       </div>
                      
                   </label>
               </li>
               <li>
-                  <input type="radio" id="Refurbished" name="hosting" value="Refurbished" class="hidden peer"/>
-                  <label for="Refurbished" class="inline-flex items-center justify-between w-full p-3  text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer  peer-checked:border-cyan-500 peer-checked:text-cyan-500 hover:text-gray-600 hover:bg-gray-100">
-                      <div class="block">
+                  <input type="radio" id="Refurbished" name="hosting" value="Refurbished" className="hidden peer"/>
+                  <label htmlFor="Refurbished" className="inline-flex items-center justify-between w-full p-3  text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer  peer-checked:border-cyan-500 peer-checked:text-cyan-500 hover:text-gray-600 hover:bg-gray-100">
+                      <div className="block">
                          
-                          <div class="w-full"> Refurbished</div>
+                          <div className="w-full"> Refurbished</div>
                       </div>
                      
                   </label>
