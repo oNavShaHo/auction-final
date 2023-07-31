@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import ReactModal from 'react-modal';
 import Login from '@/components/Login';
-
+import Link from 'next/link';
 
 export default function Navbar() {
     const [isOpen,setIsOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function Navbar() {
         </ReactModal>
 
         <div className="inline-flex ml-14 px-1">
-            <a className="_o6689fn" href="/">
+            <Link className="_o6689fn" href="/">
                 <div className="hidden md:block">
                     {/* logo width="102" height="32" */}
                     <img  src='logo.png' width={180} height={50}>
@@ -26,7 +26,7 @@ export default function Navbar() {
                     
                     </img>
                 </div>
-            </a>
+            </Link>
         </div>
 
     
@@ -68,9 +68,9 @@ export default function Navbar() {
         <div className="flex justify-end items-center relative">
         
             <div className="flex mr-4 items-center">
-            <a className="inline-block py-2 px-3 hover:bg-gray-200 rounded-full" href="#">
+            <Link className="inline-block py-2 px-3 hover:bg-gray-200 rounded-full" href="/addProduct">
                 <div className="flex items-center relative cursor-pointer whitespace-nowrap">Auction Your Items</div>
-            </a>
+            </Link>
             <div className="block relative">
                 <button type="button" className="inline-block py-2 px-3 hover:bg-gray-200 rounded-full relative ">
                 <div className="flex items-center h-5">
