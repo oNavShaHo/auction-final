@@ -44,7 +44,7 @@ Total Weight: 370g / 13.05oz.
 `
 let text = description.split('\n');
 
-export default function product() {
+export default function product(props) {
   return (
     <div className='tracking-wide'>
       <Navbar/>
@@ -67,7 +67,7 @@ export default function product() {
 
         </div>
         <div>
-          <h1 className='text-3xl'>ROLEX BRAND NEW SUBMARINER TWO TONE BLUE DIAL</h1>
+          <h1 className='text-3xl'>{props.title}</h1>
           <div className='mt-4  mb-2 relative text-gray-700'>
             <p>
               Estimate $40,000 -$60,000
