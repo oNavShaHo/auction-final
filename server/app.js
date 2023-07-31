@@ -7,6 +7,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
 // Route
 const User = require('./Routes/userRoutes');
+const Product = require('./Routes/Product');
 
 
 
@@ -20,6 +21,7 @@ async function main() {
 
   //  Router  user
 app.use("/user",User);
+app.use("/product",Product)
 
 
 app.listen(8080,()=>{

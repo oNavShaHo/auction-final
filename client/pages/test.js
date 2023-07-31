@@ -82,6 +82,7 @@ export default function AddProduct() {
                   </label>
               </li>
           </ul>
+          <button type='submit' >Sumbit</button>
 
           <div className='my-6 '>
             <label className='text-gray-600  '> Description : </label>
