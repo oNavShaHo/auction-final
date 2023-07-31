@@ -73,6 +73,7 @@ export default function AddProduct() {
                   </label>
               </li>
           </ul>
+          <button type='submit' >Sumbit</button>
 
         </form>
       </div>
