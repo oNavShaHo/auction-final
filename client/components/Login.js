@@ -4,42 +4,58 @@ import{auth} from '../firebase/firebase'
 import {createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Login(props) {
+	const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [isSignupMode, setIsSignupMode] = useState(true); // New state variable to track form mode
+  
+    const toggleFormMode = () => {
+      setIsSignupMode((prevMode) => !prevMode);
+      setEmail('');
+      setPassword('');
+    };
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        setIsLoading(true);
+      
+        if (isSignupMode) {
+          createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              // Signed in
+              const user = userCredential.user;
+              console.log("done");
+              // ...
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              // ..
+              console.log(errorCode);
+              console.log(errorMessage);
+            });
+        } else {
+          // Handle login logic here using the existing firebase login method
+          // For example, you can use `signInWithEmailAndPassword` method:
+          // signInWithEmailAndPassword(auth, email, password)
+          //   .then((userCredential) => {
+          //     const user = userCredential.user;
+          //     console.log("Logged in!");
+          //     // ...
+          //   })
+          //   .catch((error) => {
+          //     const errorCode = error.code;
+          //     const errorMessage = error.message;
+          //     console.log(errorCode);
+          //     console.log(errorMessage);
+          //   });
+        }
+      
+        setEmail('');
+        setIsLoading(false);
+      };
 
-	
-		const [email, setEmail] = useState('');
-		const [password, setPassword] = useState('');
-		const [isLoading, setIsLoading] = useState(false);
-		
-		
-		const onSubmit = async (event) => {
-		  // prevent redirect
-		  event.preventDefault();
-	  
-		  setIsLoading(true);
-
-		   // Create the firebase Authetication
-		  createUserWithEmailAndPassword(auth, email, password)
-		  .then((userCredential) => {
-			// Signed in 
-			const user = userCredential.user;
-			console.log("done");
-			// ...
-		  })
-		  .catch((error) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			// ..
-			console.log(errorCode);
-			console.log(errorMessage);
-		  });
-	  
-		  // reset form and loading state
-		  setEmail('');
-		  setIsLoading(false);
-		};
-	
-	function show_hide() {
-
+      function show_hide() {
+		// logic for password show or hide 
 		if(typeof document != null){
 			var input = document.getElementById("password");
 			if (input.type === "password") {
@@ -55,10 +71,9 @@ export default function Login(props) {
 		
 	}
 
-
-
   return (
-   <div className=" mt-24 mx-auto w-6/12 grid grid-cols-3 bg-white drop-shadow-2xl shadow-2xl">
+    <div>
+      <div className=" mt-24 mx-auto w-6/12 grid grid-cols-3 bg-white drop-shadow-2xl shadow-2xl">
 		<div className="">
 			<Image src={"/art5.webp"} width={900} height={900}></Image>
 		</div>
@@ -67,7 +82,7 @@ export default function Login(props) {
 				<button onClick ={()=>{props.quit(false)}} className='absolute right-4 top-4 w-max'>
 					<svg className='' xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
 				</button>
-				<h1 className=' text-center text-black text-2xl'>Welcome to LiveAuctioneers!</h1>
+				<h1 className=' text-center text-black text-2xl'> {isSignupMode ? 'Sign up and begin your treasure hunt.' : 'Welcome to LiveAuctioneers!'}</h1>
 			</div>
 			<form  onSubmit={ (e) =>onSubmit(e)}>
 
@@ -88,10 +103,15 @@ export default function Login(props) {
 					</div>
 					<input className='leading-10 border w-full mb-8' onChange={(event) => setPassword(event.target.value)} type="password" name="password" id='password'/>
 
-					<button type='submit'  className='text-center bg-red-800 w-full hover:bg-red-700 text-white leading-10'>SIGNUP</button>
+					<button type='submit'  className='text-center bg-red-800 w-full hover:bg-red-700 text-white leading-10'>{isSignupMode ? 'SIGNUP' : "LOGIN"}</button>
+
+                    <p className="text-center">{isSignupMode ? 'Already have an account?' : "Don't have an account?"}
+                        <button className = "mt-6   text-cyan-800 underline decoration-cyan-800 hover:text-cyan-700 hover:decoration-cyan-700 "onClick={toggleFormMode}>{isSignupMode ? 'LOGIN' : 'SIGNUP'}</button>
+                    </p>
 				</div>
 			</form>
 		</div>
-   </div>
+    </div>
+    </div>
   )
 }

@@ -3,8 +3,6 @@ import ReactModal from 'react-modal';
 import Login from '@/components/Login';
 
 
-
-
 export default function Navbar() {
     const [isOpen,setIsOpen] = useState(false);
     return (
