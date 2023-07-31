@@ -1,26 +1,26 @@
+import React from 'react'
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
+import Image from 'next/image';
+export default function addProduct() {
+    const[ productInfo, setProductInfo] = useState({
+        productName : "",
+        productCategory: "",
+        productLife:"",
+        productDescription:"",
+      })
+      
+    
+      // Function to handle form submission
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        // Perform the necessary actions to add the product
+        // For example, you can make an API call to store the product data on the server
+        // Don't forget to add validation and error handling
+      };
 
-
-export default function AddProduct() {
-  const[ productInfo, setProductInfo] = useState({
-    productName : "",
-    productCategory: "",
-    productLife:"",
-    productDescription:"",
-  })
-  // Add more states for other product attributes as needed
-
-  // Function to handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform the necessary actions to add the product
-    // For example, you can make an API call to store the product data on the server
-    // Don't forget to add validation and error handling
-  };
-
-  return (
+    return (
     <div className="">
       <Navbar></Navbar>
 
@@ -32,7 +32,7 @@ export default function AddProduct() {
       <hr />
       </div>
 
-      <div className="grid grid-cols-2 mx-20">
+      <div className="grid grid-cols-2 mx-20 gap-14">
 
       <div className=" ">
           <form className='my-4 ' onSubmit={ (e) =>onSubmit(e)}>
@@ -82,19 +82,71 @@ export default function AddProduct() {
                   </label>
               </li>
           </ul>
-          <button type='submit' >Sumbit</button>
+          <div className="mt-6">
 
-          <div className='my-6 '>
-            <label className='text-gray-600  '> Description : </label>
-            <textarea className='border resize-none rounded-md' name="description" id="description" cols="91" rows="7"></textarea>
+            <label className=' text-gray-600' htmlFor="date"> Date :</label>
+            <input className=' text-gray-600 ml-6 border rounded-md' type="date" name="date" id="date" />
+
           </div>
+          <div className='my-6 '>
+            <label className='text-gray-600 block mb-2 '> Description : </label>
+            <textarea className='border resize-none rounded-md' name="description" id="description" cols="87" rows="6"></textarea>
+          </div>
+
+          
 
         </form>
       </div>
 
+      <div>
+        <Image className='inline mx-2 border' width ={200}  height = {200} src = "/blankImage.jpg">
+          
+        </Image>
+        <Image className='inline mx-2 border' width ={200}  height = {200} src = "/blankImage.jpg">
+          
+        </Image>
+        <Image className='inline mx-2 border' width ={200}  height = {200} src = "/blankImage.jpg">
+          
+        </Image>
+
+        <div className='my-8 mx-2 space-x-28' >
+          <label className='ml-8 text-gray-600 text-lg border p-1 rounded-md' htmlFor="imageInput1"> Choose File</label>
+          <input className='hidden' type="file" name="imageInput1" id="imageInput1"  />
+
+          <label className='text-gray-600 text-lg border p-1 rounded-md' htmlFor="imageInput2"> Choose File</label>
+          <input className='hidden' type="file" name="imageInput2" id="imageInput2"  />
+
+
+          <label className='text-gray-600 text-lg border p-1 rounded-md' htmlFor="imageInput3"> Choose File</label>
+          <input className='hidden' type="file" name="imageInput3" id="imageInput3"  />
+
+        </div>
+
+        <div className='mx-3   px-4 py-6 bg-orange-50 border border-orange-100'>
+         
+            <div className="relative">
+
+              <p className="text-gray-600 mx-12 mt-2">Starting Bid:</p>
+                
+            </div>
+
+            <div className='flex flex-col items-center justify-center'>
+            <input type="number" className="mb-4 leading-8 text-lg w-5/6 bg-white rounded-none border border-gray-400 pl-2" placeholder='$520' />
+
+            <button type='submit' className='leading-10 text-lg rounded-none bg-cyan-700 text-white w-5/6'>List Your Item</button>
+            </div>
+            
+              
+          </div>
+
+
       </div>
+
+
+      </div>
+
       
       
     </div>
-  );
+    )
 }

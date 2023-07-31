@@ -3,6 +3,7 @@ import Image from 'next/image'
 import{auth} from '../firebase/firebase'
 import {createUserWithEmailAndPassword } from "firebase/auth";
 
+
 export default function Login(props) {
 	const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -111,6 +112,9 @@ export default function Login(props) {
 				</div>
 			</form>
 		</div>
+
+    <div>
+    </div>
     </div>
     </div>
   )
